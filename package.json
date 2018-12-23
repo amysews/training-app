@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -17,11 +18,16 @@
   },
   "homepage": "https://github.com/amysews/training-app#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "morgan": "^1.9.1",
     "pg": "^7.7.1"
   },
   "engines": {
     "node": "9.x"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
   }
 }
