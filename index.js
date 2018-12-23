@@ -41,6 +41,7 @@ app
     .set('view engine', 'ejs')
     .get('/', (req, res) => res.send('hello world'))
     .get('/exercises', async (req, res) => await getExercises(req, res))
+    .get('/form', async (req, res) => res.render('pages/home'))
     .get('*', (req, res) => res.status(200).send({message: 'Welcome to nothing'}))
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 

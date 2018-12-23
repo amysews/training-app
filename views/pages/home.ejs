@@ -6,13 +6,12 @@
 <body>
 
 
-<h2>Database Results</h2>
+<h2>Input form</h2>
 
-<ul>
-    <% results.forEach(function(r) { %>
-        <li><%= r.id %> - <%= r.name %></li>
-    <% }); %>
-</ul>
+<form>
+    Exercise name: <input type="text" name="exerciseName">
+    <input type="submit" value="Submit">
+</form>
 
 </div>
 
