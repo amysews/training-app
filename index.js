@@ -32,11 +32,27 @@ async function getData(req, res) {
     }
 }
 
+async function getExercises(req, res) {
+    {
+        try {
+            const client = await pool.connect()
+            const result = await client.query('SELECT * FROM exercises');
+            const results = { 'results': (result) ? result.rows : null};
+            res.render('pages/exercises', results );
+            client.release();
+        } catch (err) {
+            console.error(err);
+            res.send("Error " + err);
+        }
+    }
+}
+
 app
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
     .get('/', (req, res) => res.send('hello world'))
     .get('/db', async (req, res) => await getData(req, res))
+    .get('/exercises', async (req, res) => await getExercises(req, res))
     .get('*', (req, res) => res.status(200).send({message: 'Welcome to nothing'}))
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
