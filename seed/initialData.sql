@@ -1,7 +1,7 @@
-INSERT INTO measurements (name, description, unit)
+INSERT INTO measures (name, description, unit)
 VALUES ('weight', 'Body weight measured without shoes', 'kg');
 
-INSERT INTO measurement_data (measurement_id, date, value)
+INSERT INTO measurements (measure_id, date, value)
 VALUES (1, now(), 66);
 
 INSERT INTO exercises (name, description, equipment, type, measure)

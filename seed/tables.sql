@@ -1,13 +1,13 @@
-CREATE TABLE measurements (
+CREATE TABLE measures (
     id serial PRIMARY KEY NOT NULL,
     name text NOT NULL,
     description text,
     unit text
 );
 
-CREATE TABLE measurement_data (
+CREATE TABLE measurements (
     id serial PRIMARY KEY NOT NULL,
-    measurement_id integer REFERENCES measurements(id),
+    measure_id integer REFERENCES measures(id),
     date timestamptz DEFAULT NOW() NOT NULL,
     value integer NOT NULL
 );
