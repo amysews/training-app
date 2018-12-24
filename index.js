@@ -17,12 +17,12 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-async function requestData(req, res, query, page) {
+async function requestData(req, res, query, name) {
     {
         try {
             const client = await pool.connect()
             const result = await client.query(query);
-            const results = { 'results': (result) ? result.rows : null};
+            const results = { [name]: (result) ? result.rows : null};
             res.json(results);
             client.release();
         } catch (err) {
@@ -33,7 +33,7 @@ async function requestData(req, res, query, page) {
 }
 
 function getExercises(req, res) {
-    return requestData(req, res, 'SELECT * FROM exercises', 'pages/exercises')
+    return requestData(req, res, 'SELECT * FROM exercises', 'exercises')
 }
 
 app
